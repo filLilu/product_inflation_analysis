@@ -1,0 +1,131 @@
+{
+    "objects": [
+        {
+            "name": "country",
+            "business_key": [
+                {
+                    "source_name": "ISO3",
+                    "target_name": "code",
+                    "type": "VARCHAR(225)"
+                }
+            ],
+            "descriptive_attributes": [
+                {
+                    "source_name": "country",
+                    "target_name": "name",
+                    "type": "VARCHAR(225)"
+                }
+            ]
+        },
+        {
+            "name": "survey",
+            "business_key": [
+                {
+                    "source_name": "year",
+                    "target_name": "year",
+                    "type": "INTEGER"
+                }, 
+                {
+                    "source_name": "month",
+                    "target_name": "month",
+                    "type": "INTEGER"
+                }
+            ],
+            "descriptive_attributes": []
+        },
+        {
+            "name": "market",
+            "business_key": [
+                {
+                    "source_name": "adm1_name",
+                    "target_name": "adm1_name",
+                    "type": "VARCHAR(225)"
+                }, 
+                {
+                    "source_name": "adm2_name",
+                    "target_name": "adm2_name",
+                    "type": "VARCHAR(225)"
+                }, 
+                {
+                    "source_name": "mkt_name",
+                    "target_name": "name",
+                    "type": "VARCHAR(225)"
+                }
+            ],
+            "descriptive_attributes": []
+        },
+        {
+            "name": "coordinates",
+            "business_key": [
+                {
+                    "source_name": "geo_id",
+                    "target_name": "geo_id",
+                    "type": "VARCHAR(225)"
+                }
+            ],
+            "descriptive_attributes": [
+                {
+                    "source_name": "lat",
+                    "target_name": "lat",
+                    "type": "REAL"
+                },
+                {
+                    "source_name": "lon",
+                    "target_name": "lon",
+                    "type": "REAL"
+                }
+            ]
+        }, 
+        {
+            "name": "product",
+            "business_key": [
+                {
+                    "source_name": "product",
+                    "target_name": "name",
+                    "type": "VARCHAR(225)"
+                }
+            ],
+            "descriptive_attributes": []
+        }
+    ],
+    "links": [
+        {
+            "linked_objects": [
+                "market",
+                "coordinates"
+            ],
+            "descriptive_attributes": []
+        },
+        {
+            "linked_objects": [
+                "market",
+                "country"
+            ],
+            "descriptive_attributes": []
+        },
+        {
+            "linked_objects": [
+                "survey",
+                "market",
+                "product"
+            ],
+            "descriptive_attributes": [
+                {
+                    "source_name": "average_price",
+                    "target_name": "average_price",
+                    "type": "REAL"
+                },
+                {
+                    "source_name": "max_price",
+                    "target_name": "max_price",
+                    "type": "REAL"
+                },
+                {
+                    "source_name": "min_price",
+                    "target_name": "min_price",
+                    "type": "REAL"
+                }
+            ]
+        }
+    ]
+}
